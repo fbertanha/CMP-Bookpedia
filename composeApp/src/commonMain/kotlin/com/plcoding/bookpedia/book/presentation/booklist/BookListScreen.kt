@@ -22,7 +22,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import cmp_bookpedia.composeapp.generated.resources.*
 import com.plcoding.bookpedia.book.data.mockBooks
 import com.plcoding.bookpedia.book.data.mockFavorites
-import com.plcoding.bookpedia.book.domain.Book
+import com.plcoding.bookpedia.book.domain.model.Book
 import com.plcoding.bookpedia.book.presentation.booklist.components.BookList
 import com.plcoding.bookpedia.book.presentation.booklist.components.BookSearchBar
 import com.plcoding.bookpedia.core.presentation.DarkBlue
@@ -177,6 +177,14 @@ private fun BookListScreen(
                                     textAlign = TextAlign.Center,
                                     style = MaterialTheme.typography.headlineSmall,
                                     color = MaterialTheme.colorScheme.error
+                                )
+                            }
+
+                            pageIdex == 0 && state.searchResults.isEmpty() && state.searchQuery.length <= 2 -> {
+                                Text(
+                                    text = stringResource(Res.string.start_search),
+                                    textAlign = TextAlign.Center,
+                                    style = MaterialTheme.typography.headlineSmall
                                 )
                             }
 

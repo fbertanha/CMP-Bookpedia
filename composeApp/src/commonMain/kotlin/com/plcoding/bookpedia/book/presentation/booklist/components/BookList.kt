@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.plcoding.bookpedia.book.data.mockBooks
-import com.plcoding.bookpedia.book.domain.Book
+import com.plcoding.bookpedia.book.domain.model.Book
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable

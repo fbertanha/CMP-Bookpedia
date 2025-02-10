@@ -4,6 +4,16 @@
     <string name="close_hint">Close hint</string>
     <string name="search_results">Search Results</string>
     <string name="favorites">Favorites</string>
+    <string name="start_search">Search for books to explore</string>
     <string name="no_search_result">Oops. there aren't any books for your search!</string>
-    <string name="no_favorites">You have not favorites yet!</string>
+    <string name="no_favorites">You have no favorites yet!</string>
+
+    <string name="error_disk_full">Oops, it seems like your disk is full.</string>
+    <string name="error_unknown">Oops, something went wrong.</string>
+    <string name="error_request_timeout">The request timed out.</string>
+    <string name="error_no_internet">Couldn't reach server, please check your internet connection.</string>
+    <string name="error_too_many_requests">Your quota seems to be exceeded.</string>
+    <string name="error_serialization">Couldn't parse data.</string>
+
+
 </resources>

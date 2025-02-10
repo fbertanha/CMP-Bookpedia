@@ -1,6 +1,6 @@
 package com.plcoding.bookpedia.book.data
 
-import com.plcoding.bookpedia.book.domain.Book
+import com.plcoding.bookpedia.book.domain.model.Book
 
 val mockBooks = listOf(
     Book(
