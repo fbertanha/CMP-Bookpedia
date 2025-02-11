@@ -6,10 +6,26 @@ val mockBooks = listOf(
     Book(
         id = "1",
         title = "Kotlin In Action",
-        imageUrl = "https://example.com/kotlin_in_action.jpg",
+        imageUrl = "https://covers.openlibrary.org/b/id/14815558-L.jpg",
         authors = listOf("Dmitry Jemerov", "Svetlana Isakova"),
         description = "Comprehensive guide to Kotlin programming.",
-        languages = listOf("English"),
+        languages = listOf(
+            "Eng",
+            "Spa",
+            "Fre",
+            "Ger",
+            "Ita",
+            "Por",
+            "Rus",
+            "Chi",
+            "Jap",
+            "Kor",
+            "Ara",
+            "Hin",
+            "Tur",
+            "Swe",
+            "Gre"
+        ),
         firstPublishYear = "2017",
         averageRating = 4.5,
         ratingCount = 2500,
@@ -19,7 +35,7 @@ val mockBooks = listOf(
     Book(
         id = "2",
         title = "Clean Code",
-        imageUrl = "https://example.com/clean_code.jpg",
+        imageUrl = "https://covers.openlibrary.org/b/id/14815558-L.jpg",
         authors = listOf("Robert C. Martin"),
         description = "A Handbook of Agile Software Craftsmanship.",
         languages = listOf("English", "Spanish"),
@@ -32,7 +48,7 @@ val mockBooks = listOf(
     Book(
         id = "3",
         title = "Atomic Habits",
-        imageUrl = "https://example.com/atomic_habits.jpg",
+        imageUrl = "https://covers.openlibrary.org/b/id/14815558-L.jpg",
         authors = listOf("James Clear"),
         description = "An Easy & Proven Way to Build Good Habits & Break Bad Ones.",
         languages = listOf("English", "German", "French"),
@@ -45,7 +61,7 @@ val mockBooks = listOf(
     Book(
         id = "4",
         title = "Effective Java",
-        imageUrl = "https://example.com/effective_java.jpg",
+        imageUrl = "https://covers.openlibrary.org/b/id/14815558-L.jpg",
         authors = listOf("Joshua Bloch"),
         description = "Best practices for the Java platform.",
         languages = listOf("English"),
@@ -58,7 +74,7 @@ val mockBooks = listOf(
     Book(
         id = "5",
         title = "The Pragmatic Programmer",
-        imageUrl = "https://example.com/the_pragmatic_programmer.jpg",
+        imageUrl = "https://covers.openlibrary.org/b/id/14815558-L.jpg",
         authors = listOf("Andrew Hunt", "David Thomas"),
         description = "Your Journey to Mastery.",
         languages = listOf("English", "Chinese"),
@@ -75,7 +91,7 @@ val mockFavorites = listOf(
     Book(
         id = "3",
         title = "Atomic Habits",
-        imageUrl = "https://example.com/atomic_habits.jpg",
+        imageUrl = "https://covers.openlibrary.org/b/id/14815558-L.jpg",
         authors = listOf("James Clear"),
         description = "An Easy & Proven Way to Build Good Habits & Break Bad Ones.",
         languages = listOf("English", "German", "French"),
@@ -88,7 +104,7 @@ val mockFavorites = listOf(
     Book(
         id = "5",
         title = "The Pragmatic Programmer",
-        imageUrl = "https://example.com/the_pragmatic_programmer.jpg",
+        imageUrl = "https://covers.openlibrary.org/b/id/14815558-L.jpg",
         authors = listOf("Andrew Hunt", "David Thomas"),
         description = "Your Journey to Mastery.",
         languages = listOf("English", "Chinese"),

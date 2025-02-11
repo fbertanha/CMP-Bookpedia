@@ -40,15 +40,15 @@ fun BookListScreenRoot(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 
-    BookListScreen(state = state, onAction = { action ->
-        when (action) {
-            is BookListAction.OnBookClick -> {
-                onBookClicked(action.book)
-            }
+    BookListScreen(
+        state = state,
+        onAction = { action ->
+            when (action) {
+                is BookListAction.OnBookClick -> onBookClicked(action.book)
 
-            else -> viewModel.onAction(action)
-        }
-    })
+                else -> viewModel.onAction(action)
+            }
+        })
 }
 
 @Composable
