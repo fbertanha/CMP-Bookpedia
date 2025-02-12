@@ -21,4 +21,10 @@ class BookRepositoryImpl(
                 }
             }
     }
+
+    override suspend fun fetchBookDescription(bookWorkId: String): Result<String?, DataError> {
+        return remoteBookDataSource
+            .fetchBookDescription(bookWorkId = bookWorkId)
+            .map { it.description }
+    }
 }
