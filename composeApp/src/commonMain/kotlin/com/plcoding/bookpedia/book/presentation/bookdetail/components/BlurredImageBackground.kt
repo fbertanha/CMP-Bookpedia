@@ -23,6 +23,7 @@ import cmp_bookpedia.composeapp.generated.resources.*
 import coil3.compose.rememberAsyncImagePainter
 import com.plcoding.bookpedia.core.presentation.DarkBlue
 import com.plcoding.bookpedia.core.presentation.DesertWhite
+import com.plcoding.bookpedia.core.presentation.PulseAnimation
 import com.plcoding.bookpedia.core.presentation.SandYellow
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -107,9 +108,6 @@ fun BlurredImageBackground(
                     .height(220.dp)
                     .aspectRatio(2 / 3f),
                 shape = RoundedCornerShape(8.dp),
-                colors = CardDefaults.elevatedCardColors(
-                    containerColor = Color.Transparent
-                ),
                 elevation = CardDefaults.elevatedCardElevation(
                     defaultElevation = 15.dp
                 )
@@ -118,7 +116,13 @@ fun BlurredImageBackground(
                     targetState = imageLoaderResult
                 ) { result ->
                     when (result) {
-                        null -> CircularProgressIndicator()
+                        null -> Box(
+                            contentAlignment = Alignment.Center,
+                            modifier = Modifier.fillMaxSize()
+                        ) {
+                            PulseAnimation()
+                        }
+
                         else -> {
                             Box {
                                 Image(
