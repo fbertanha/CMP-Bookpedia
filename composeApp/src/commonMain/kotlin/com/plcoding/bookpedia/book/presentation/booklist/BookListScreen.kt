@@ -166,50 +166,68 @@ private fun BookListScreen(
                             .fillMaxSize(),
                         contentAlignment = Alignment.Center
                     ) {
-                        when {
-                            state.isLoading -> {
-                                CircularProgressIndicator()
+                        when (pageIdex) {
+                            0 -> {
+                                when {
+                                    state.isLoading -> {
+                                        CircularProgressIndicator()
+                                    }
+
+                                    state.errorMessage != null -> {
+                                        Text(
+                                            text = state.errorMessage.asString(),
+                                            textAlign = TextAlign.Center,
+                                            style = MaterialTheme.typography.headlineSmall,
+                                            color = MaterialTheme.colorScheme.error
+                                        )
+                                    }
+
+                                    state.searchResults.isEmpty() && state.searchQuery.length <= 2 -> {
+                                        Text(
+                                            text = stringResource(Res.string.start_search),
+                                            textAlign = TextAlign.Center,
+                                            style = MaterialTheme.typography.headlineSmall
+                                        )
+                                    }
+
+                                    state.searchResults.isEmpty() -> {
+                                        Text(
+                                            text = stringResource(Res.string.no_search_result),
+                                            textAlign = TextAlign.Center,
+                                            style = MaterialTheme.typography.headlineSmall
+                                        )
+                                    }
+
+                                    else -> {
+                                        BookList(
+                                            books = state.searchResults,
+                                            onBookClick = { book -> onAction(BookListAction.OnBookClick(book)) },
+                                            modifier = Modifier.fillMaxSize(),
+                                            scrollState = searchResultsState
+                                        )
+                                    }
+                                }
                             }
 
-                            state.errorMessage != null -> {
-                                Text(
-                                    text = state.errorMessage.asString(),
-                                    textAlign = TextAlign.Center,
-                                    style = MaterialTheme.typography.headlineSmall,
-                                    color = MaterialTheme.colorScheme.error
-                                )
-                            }
+                            1 -> {
+                                when {
+                                    state.favoriteBooks.isEmpty() -> {
+                                        Text(
+                                            text = stringResource(Res.string.no_favorites),
+                                            textAlign = TextAlign.Center,
+                                            style = MaterialTheme.typography.headlineSmall
+                                        )
+                                    }
 
-                            pageIdex == 0 && state.searchResults.isEmpty() && state.searchQuery.length <= 2 -> {
-                                Text(
-                                    text = stringResource(Res.string.start_search),
-                                    textAlign = TextAlign.Center,
-                                    style = MaterialTheme.typography.headlineSmall
-                                )
-                            }
-
-                            pageIdex == 0 && state.searchResults.isEmpty() -> {
-                                Text(
-                                    text = stringResource(Res.string.no_search_result),
-                                    textAlign = TextAlign.Center,
-                                    style = MaterialTheme.typography.headlineSmall
-                                )
-                            }
-
-                            pageIdex == 1 && state.favoriteBooks.isEmpty() -> {
-                                Text(
-                                    text = stringResource(Res.string.no_favorites),
-                                    textAlign = TextAlign.Center,
-                                    style = MaterialTheme.typography.headlineSmall
-                                )
-                            }
-
-                            else -> {
-                                BookList(
-                                    books = if (pageIdex == 0) state.searchResults else state.favoriteBooks,
-                                    onBookClick = { book -> onAction(BookListAction.OnBookClick(book)) },
-                                    scrollState = if (pageIdex == 0) searchResultsState else favoritesState
-                                )
+                                    else -> {
+                                        BookList(
+                                            books = state.favoriteBooks,
+                                            onBookClick = { book -> onAction(BookListAction.OnBookClick(book)) },
+                                            modifier = Modifier.fillMaxSize(),
+                                            scrollState = favoritesState
+                                        )
+                                    }
+                                }
                             }
                         }
                     }
@@ -228,8 +246,8 @@ fun BookListScreenPreview() {
         state = BookListState(
             searchQuery = "Java",
             selectedTabIndex = 1,
-            searchResults = mockBooks,
-            favoriteBooks = mockFavorites,
+            searchResults = mockBooks.subList(0, 2),
+            favoriteBooks = mockFavorites.subList(0, 2),
             isLoading = false
         ),
         onAction = {})
